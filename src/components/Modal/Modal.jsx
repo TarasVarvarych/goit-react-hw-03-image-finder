@@ -51,8 +51,3 @@ const ModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
-
-const ModalImg = styled.img`
-  position: reletive;
-  display: block;
-`;

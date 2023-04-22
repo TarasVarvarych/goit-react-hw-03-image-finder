@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
 const modalRoot = document.querySelector('#modal-root');
@@ -51,3 +52,9 @@ const ModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  img: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};

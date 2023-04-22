@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 export function ImageGallery({ children }) {
   return <Gallery>{children}</Gallery>;
 }
@@ -11,3 +12,7 @@ const Gallery = styled.ul`
   padding: 20px;
   justify-content: center;
 `;
+
+ImageGallery.propTypes = {
+  children: PropTypes.node.isRequired,
+};

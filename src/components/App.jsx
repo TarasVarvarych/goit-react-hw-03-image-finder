@@ -46,7 +46,6 @@ export class App extends Component {
     this.setState({ isLoading: true });
     try {
       const images = await fetchImages(query, currentPage + 1);
-      console.log(images);
       this.setState(prevState => ({
         images: [...prevState.images, ...images.hits],
         isLoading: false,

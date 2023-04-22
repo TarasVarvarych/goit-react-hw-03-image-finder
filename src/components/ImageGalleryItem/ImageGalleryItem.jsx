@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Modal } from 'components/Modal/Modal';
 import { Component } from 'react';
 export class ImageGalleryItem extends Component {
@@ -41,3 +42,7 @@ const GalleryItem = styled.li`
     cursor: pointer;
   }
 `;
+
+ImageGalleryItem.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

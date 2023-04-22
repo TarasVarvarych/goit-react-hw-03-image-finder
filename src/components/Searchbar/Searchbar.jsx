@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import IconSearch from './SearchIcon';
 export function Searchbar({ onSubmit }) {
   return (
@@ -59,3 +60,7 @@ const SearchButton = styled.button`
     scale: 1.05;
   }
 `;
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 export function LoadMoreBtn({ onLoadMore }) {
   return (
     <LoadMoreButton type="button" onClick={onLoadMore}>
@@ -23,3 +25,6 @@ const LoadMoreButton = styled.button`
     scale: 1.05;
   }
 `;
+LoadMoreBtn.propTypes = {
+  onLoadMore: PropTypes.func.isRequired,
+};

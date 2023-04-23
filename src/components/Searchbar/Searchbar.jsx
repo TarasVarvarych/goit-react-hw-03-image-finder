@@ -4,8 +4,8 @@ import IconSearch from './SearchIcon';
 export function Searchbar({ onSubmit }) {
   return (
     <Header>
-      <SearchForm className="form" onSubmit={onSubmit}>
-        <SearchButton type="submit" className="button">
+      <SearchForm onSubmit={onSubmit}>
+        <SearchButton type="submit">
           <IconSearch />
         </SearchButton>
 

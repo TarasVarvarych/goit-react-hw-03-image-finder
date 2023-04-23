@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Component } from 'react';
 const modalRoot = document.querySelector('#modal-root');
+const ESCAPE_KEY = 'Escape';
+const KEYDOWN_LISTENER = 'keydown';
 
 export class Modal extends Component {
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDown);
+    window.addEventListener(KEYDOWN_LISTENER, this.handleKeyDown);
   }
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
+    window.removeEventListener(KEYDOWN_LISTENER, this.handleKeyDown);
   }
 
   handleKeyDown = e => {
-    if (e.code === 'Escape') {
+    if (e.code === ESCAPE_KEY) {
       this.props.onClose();
     }
   };

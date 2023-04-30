@@ -1,36 +1,28 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Modal } from 'components/Modal/Modal';
-import { Component } from 'react';
-export class ImageGalleryItem extends Component {
-  state = {
-    isModalOpen: false,
-    selectedImageIndex: null,
+import { useState } from 'react';
+export function ImageGalleryItem({ images }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const openModal = index => {
+    setIsModalOpen(true);
+    setSelectedImageIndex(index);
+  };
+  const handleModalClose = e => {
+    setIsModalOpen(false);
+    setSelectedImageIndex(null);
   };
 
-  openModal = index => {
-    this.setState({ isModalOpen: true, selectedImageIndex: index });
-  };
-  handleModalClose = e => {
-    this.setState({ isModalOpen: false, selectedImageIndex: null });
-  };
-
-  render() {
-    const { images } = this.props;
-    const { isModalOpen, selectedImageIndex } = this.state;
-    return images.map(({ id, webformatURL, tags, largeImageURL }, index) => (
-      <GalleryItem key={id} onClick={() => this.openModal(index)}>
-        <img src={webformatURL} alt={tags} width="400" height="300" />
-        {isModalOpen && selectedImageIndex === index && (
-          <Modal
-            img={largeImageURL}
-            alt={tags}
-            onClose={this.handleModalClose}
-          />
-        )}
-      </GalleryItem>
-    ));
-  }
+  return images.map(({ id, webformatURL, tags, largeImageURL }, index) => (
+    <GalleryItem key={id} onClick={() => openModal(index)}>
+      <img src={webformatURL} alt={tags} width="400" height="300" />
+      {isModalOpen && selectedImageIndex === index && (
+        <Modal img={largeImageURL} alt={tags} onClose={handleModalClose} />
+      )}
+    </GalleryItem>
+  ));
 }
 
 const GalleryItem = styled.li`
